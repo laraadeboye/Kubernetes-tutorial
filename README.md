@@ -48,7 +48,7 @@ How to create a sample pod named redis and image name redis123 by using a pod-de
    ```kubectl create -f redis-definition.yaml```
    ```kubectl get pods```
 
-   How to edit the name of the image in the definition file.
+  ## How to edit the name of the image in the definition file.
 
 - First, use the kubectl edit command to update the image of the pod to redis:
 
