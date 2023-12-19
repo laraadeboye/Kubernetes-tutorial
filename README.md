@@ -27,7 +27,7 @@ To delete pod
 ```kubectl delete pod <name of pod>```
 
 
-
+## Example
 How to create a sample pod named redis and image name redis123 by using a pod-definition YAML file. Note that the image is wrong and will be renamed. This tutorial will demonstrate how to edit the image in the definition file:
 
 - First, use kubectl run command with --dry-run=client -o yaml option to create a manifest file (You can use the --dry-run=client flag to preview the object that would be sent to your cluster, without really submitting it):-
