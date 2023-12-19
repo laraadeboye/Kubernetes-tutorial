@@ -104,6 +104,9 @@ To create deployment:
 
 `kubectl create -f <deployment-defination.yaml>` assuming name of file.
 
+To get help :
+`kubectl create deployment --help`
+
 
 ## sample code block for a deployment.yaml file for httpd:2.4-alpine image
 
