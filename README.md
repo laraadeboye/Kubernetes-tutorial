@@ -52,7 +52,7 @@ How to create a sample pod named redis and image name redis123 by using a pod-de
 
 - First, use the kubectl edit command to update the image of the pod to redis:
 
-   ```kubectl edit pod redis```
+   ```kubectl edit pod redis``` assuming redis is the name of the pod.
 
 - If you used a pod definition file then update the image from redis123 to redis in the definition file via Vi or Nano editor and then run kubectl apply command to update the image :
 
@@ -61,6 +61,38 @@ How to create a sample pod named redis and image name redis123 by using a pod-de
 
    ```kubectl get pods```
 
+
+## Replicasets
+
+To get the number of Replicasets or check the readiness of the replicaset:
+
+```kubectl get replicaset```  or 
+```kubectl get rs```
+
+To get the image or other details used to create the replicaset:
+
+```kubectl describe rs <name of replicaset>```
+
+To check for the version of replicaset:
+
+```kubectl api-resources | grep replicaset```
+
+To create replicaset:
+
+```kubectl create -f </root/replicaset-definition-1.yaml>``` Assuming name of file
+
+To delete replicaset or replicaset file
+
+```kubectl delete replicaset <replicaset-name>``` or ````kubectl delete -f <file-name>.yaml```
+
+To edit replicaset:
+
+```kubectl edit replicaset <new-replica-set>``` Assuming name of replicaset
+
+To scale replicas:
+
+```kubectl scale rs new-replica-set --replicas=6``` assuming you want to scale up to 6. 
+or use the ```kubectl edit``` commant and modify the file.
 
 
 
