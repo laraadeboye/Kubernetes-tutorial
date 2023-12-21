@@ -160,7 +160,7 @@ Then apply the update:
 
 To undo a change in the rollout:
 
-`kubectl rollout undo deployment <name of deployment>
+`kubectl rollout undo deployment <name of deployment>`
 
 
 
