@@ -131,6 +131,40 @@ spec:
       - name: httpd-frontend
         image: httpd:2.4-alpine
 
+  ```
+
+
+To get the status of the rollout of the deployment:
+
+`kubectl rollout status deployment/<name of deployment>`
+
+To check the history and revisions of rollout:
+
+`kubectl rollout history deployment/<name of deployment>`
+
+To update your deployment use:
+
+`kubectl edit deployment/<name of deployment>` (then upadate or edit the necessary parameters)
+
+  for editting the image specifically, use:
+
+  `kubectl set image <name of deployment> \ <name of container>=<name of image>`
+
+  for example: 
+
+  `kubectl set image deployment\myapp-deployment \ nginx-container=nginx:1.8.1`
+
+Then apply the update:
+
+`kubectl apply -f deployment-definition.yml`
+
+To undo a change in the rollout:
+
+`kubectl rollout undo deployment <name of deployment>
+
+
+
+
 
 
 
