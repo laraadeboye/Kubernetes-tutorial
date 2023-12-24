@@ -8,7 +8,7 @@ To get the number of running pods:
 
 `kubectl get pods`
 
-To create a new pod in kubernetes with an nginx image:
+To create a new pod in kubernetes with an nginx image: (Useful tip: kubectl run command helps to create a yaml file when we specify the -o yaml flag and redirect it to the name of the file using >)
 
 `kubectl run nginx --image=nginx --restart=Never`
 
