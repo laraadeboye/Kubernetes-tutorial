@@ -24,7 +24,8 @@ To get the nodes the pods are running in:
 `kubectl describe pod newpods-<id>` (check the node field)
 
 To delete pod
-`kubectl delete pod <name of pod>``
+
+`kubectl delete pod <name of pod>`
 
 
 ## Example
