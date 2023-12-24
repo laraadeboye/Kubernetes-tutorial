@@ -133,6 +133,12 @@ spec:
         image: httpd:2.4-alpine
 
   ```
+To create the above deployment when provided with the following info:
+name: httpd-frontend
+image: httpd:2.4-alpine
+replicas: 4
+use the create command:
+`kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=4`
 
 
 To get the status of the rollout of the deployment:
