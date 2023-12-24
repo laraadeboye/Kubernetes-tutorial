@@ -145,7 +145,7 @@ To check the history and revisions of rollout:
 
 To update your deployment use:
 
-`kubectl edit deployment/<name of deployment>` (then upadate or edit the necessary parameters)
+`kubectl edit deployment/<name of deployment>` (then update or edit the necessary parameters)
 
   for editting the image specifically, use:
 
