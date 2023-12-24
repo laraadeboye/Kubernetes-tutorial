@@ -93,7 +93,7 @@ To edit replicaset:
 To scale replicas:
 
 `kubectl scale rs new-replica-set --replicas=6` assuming you want to scale up to 6. 
-or use the ```kubectl edit``` commant and modify the file.
+or use the ```kubectl edit``` command and modify the file.
 
 ## Deployment
 To get the number of Deployment:
