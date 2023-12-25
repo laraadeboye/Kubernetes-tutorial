@@ -12,6 +12,14 @@ To create a new pod in kubernetes with an nginx image: (Useful tip: kubectl run 
 
 `kubectl run nginx --image=nginx --restart=Never`
 
+To create a new pod in a specific namespace:
+
+`kubectl run redis --image=redis -n finance` (use the -n flag)
+
+To change the image of the pod used:
+
+`kubectl set image deployment nginx nginx=nginx:1.18`
+
 To get the images used to create a pod:
 To get the number of containers used for a pod:
 Check the state of images:
@@ -58,6 +66,12 @@ How to create a sample pod named redis and image name redis123 by using a pod-de
 - If you used a pod definition file then update the image from redis123 to redis in the definition file via Vi or Nano editor and then run kubectl apply command to update the image :
 
    `kubectl apply -f redis-definition.yaml`
+
+  To persist the change:
+  ` `kubectl replace -f redis-definition.yaml` or
+   `kubectl apply --force -f redis-definition.yaml` (to completely delete and recreate object)
+  
+  
 - Verify by running:
 
    `kubectl get pods`
@@ -168,6 +182,70 @@ Then apply the update:
 To undo a change in the rollout:
 
 `kubectl rollout undo deployment <name of deployment>`
+
+
+## Namespaces
+In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster
+
+To get the available Namespaces:
+
+`kubectl get namespaces`
+
+To get the number of pods in a particular namespace e.g research namespace:
+
+`kubectl get pods --namespace=research` or
+
+`kubectl get pods -n research`
+
+To get the pods in all namespaces:
+
+`kubectl get pods --all-namespaces` or
+`k get pods -A`
+
+To switch permanently to a particular namepace:
+
+`kubectl config set-context $(kubectl config current-context) --namespace=dev`
+
+To create compute quota for a particular namespace:
+`kubectl create -f compute-quota.yaml`
+
+To expose a port on a service:
+`k expose pod redis --port=6379 --name redis-service` (assuming 6379 and redis-service are the port number and name of the service respectively)
+
+`kubectl run httpd --image=httpd:alpine --port=80 --expose`
+
+
+## etcd 
+etcd is a distributed reliable, secure and fast key-value store.
+
+To install etcd:
+visit https://github.com/etcd-io/etcd/releases
+
+Replace `${ETCD_VER}` with the version.
+
+Download: 
+`curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz`
+
+Extract: 
+`tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1`
+
+remove file: 
+`rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz`
+
+To run etcd:
+`./etcd`
+
+To store a key-value pair:
+`./etcdctl set key1 value1`
+
+To get a key-value pair:
+`./etcdctl get key1 value1`
+
+To view other options:
+`.etcdctl`
+
+To set the right version of API for etcd. The default is 2:
+`export ETCDCTL_API=3`
 
 
 
